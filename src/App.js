@@ -13,7 +13,19 @@ function App() {
   const addTask = () => {
     const newList = [...toDoList, {id: toDoList.length == 0 ? 1 : toDoList[toDoList.length - 1].id + 1, taskName: task, isComplete: false}]
 
-    setToDoList()
+    setToDoList(newList);
+  }
+
+  const deleteTask = (id) => {
+    const deletedList = toDoList.filter((task) => {
+      if (task.id == id) {
+        return false;
+      } else {
+        return true;
+      }
+    })
+
+    setToDoList(deletedList);
   }
 
   return (
@@ -26,7 +38,9 @@ function App() {
         {toDoList.map((task) => {
           return (
             <div>
-              <p></p>
+              <p key={task.id}>{task.taskName}</p>
+              <button>Complete</button>
+              <button onClick={() => deleteTask(task.id)}>Delete</button>
             </div>
           )
         })}
