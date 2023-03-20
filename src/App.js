@@ -28,6 +28,18 @@ function App() {
     setToDoList(deletedList);
   }
 
+  const completeTask = (id) => {
+    const completedTaskList = toDoList.map((task) => {
+      if (task.id == id) {
+        return {...task, isComplete: true}
+      } else {
+        return task
+      }
+    });
+
+    setToDoList(completedTaskList);
+  }
+
   return (
     <div className="App">
       <div className="task-input">
@@ -37,9 +49,9 @@ function App() {
       <div className="task-list">
         {toDoList.map((task) => {
           return (
-            <div>
+            <div style={{backgroundColor : task.isComplete ? "green" : "white"}}>
               <p key={task.id}>{task.taskName}</p>
-              <button>Complete</button>
+              <button onClick={() => completeTask(task.id)}>Complete</button>
               <button onClick={() => deleteTask(task.id)}>Delete</button>
             </div>
           )
