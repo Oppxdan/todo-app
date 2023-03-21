@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import {useState} from 'react';
 import './App.css';
+import NormalTask from './components/normalTask/normal-task';
 
 function App() {
   const [toDoList, setToDoList] = useState([]);
@@ -11,7 +12,7 @@ function App() {
   }
 
   const addTask = () => {
-    const newList = [...toDoList, {id: toDoList.length == 0 ? 1 : toDoList[toDoList.length - 1].id + 1, taskName: task, isComplete: false}]
+    const newList = [...toDoList, {id: toDoList.length == 0 ? 1 : toDoList[toDoList.length - 1].id + 1, taskName: task, isComplete: false, isEditing: false}]
 
     setToDoList(newList);
   }
@@ -49,11 +50,18 @@ function App() {
       <div className="task-list">
         {toDoList.map((task) => {
           return (
-            <div style={{backgroundColor : task.isComplete ? "green" : "white"}}>
-              <p key={task.id}>{task.taskName}</p>
-              <button onClick={() => completeTask(task.id)}>Complete</button>
-              <button onClick={() => deleteTask(task.id)}>Delete</button>
-            </div>
+            <NormalTask 
+              isComplete={task.isComplete}
+              id={task.id}
+              taskName={task.taskName}
+              addTask={addTask}
+              deleteTask={deleteTask}
+              toDoList={toDoList}
+              setToDoList={setToDoList}
+              task={task}
+              setTask={setTask}
+              completeTask={completeTask}
+            />
           )
         })}
       </div>
