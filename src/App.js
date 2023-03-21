@@ -43,27 +43,30 @@ function App() {
 
   return (
     <div className="App">
-      <div className="task-input">
-        <input onChange={changeTask} />
-        <button onClick={addTask}>Add Task</button>
-      </div>
-      <div className="task-list">
-        {toDoList.map((task) => {
-          return (
-            <NormalTask 
-              isComplete={task.isComplete}
-              id={task.id}
-              taskName={task.taskName}
-              addTask={addTask}
-              deleteTask={deleteTask}
-              toDoList={toDoList}
-              setToDoList={setToDoList}
-              task={task}
-              setTask={setTask}
-              completeTask={completeTask}
-            />
-          )
-        })}
+      <div className="TodoWrapper">
+        <h1 className="heading">Let's Get Things Done!</h1>
+        <div className="task-input">
+          <input className="todo-input" onChange={changeTask} placeholder="What's the Task for Today?"/>
+          <button className="todo-btn" onClick={addTask}>Add Task</button>
+        </div>
+        <div className="task-list">
+          {toDoList.map((task) => {
+            return (
+              <NormalTask 
+                isComplete={task.isComplete}
+                id={task.id}
+                taskName={task.taskName}
+                addTask={addTask}
+                deleteTask={deleteTask}
+                toDoList={toDoList}
+                setToDoList={setToDoList}
+                task={task}
+                setTask={setTask}
+                completeTask={completeTask}
+              />
+            )
+          })}
+        </div>
       </div>
     </div>
   );

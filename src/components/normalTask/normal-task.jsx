@@ -4,10 +4,10 @@ import './task.css'
 function NormalTask(props) {
   
   return (
-    <div className="task-container" style={{backgroundColor : props.isComplete ? "green" : "white"}}>
-        <p key={props.id}>{props.taskName}</p>
-        <button onClick={() => props.completeTask(props.id)}>Complete</button>
-        <button onClick={() => props.deleteTask(props.id)}>Delete</button>
+    <div className="task-container" style={{backgroundColor : props.isComplete ? "green" : "#8758ff"}}>
+        <p className="task-name" key={props.id}>{props.taskName}</p>
+        <button className="todo-btn" onClick={() => props.completeTask(props.id)}>Complete</button>
+        <button className="todo-btn" onClick={() => props.deleteTask(props.id)}>Delete</button>
     </div>
   );
 }
