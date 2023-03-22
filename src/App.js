@@ -12,9 +12,11 @@ function App() {
   }
 
   const addTask = () => {
-    const newList = [...toDoList, {id: toDoList.length == 0 ? 1 : toDoList[toDoList.length - 1].id + 1, taskName: task, isComplete: false, isEditing: false}]
+    if (task !== "") {
+      const newList = [...toDoList, {id: toDoList.length == 0 ? 1 : toDoList[toDoList.length - 1].id + 1, taskName: task, isComplete: false, isEditing: false}]
 
-    setToDoList(newList);
+      setToDoList(newList);
+    }
   }
 
   const deleteTask = (id) => {

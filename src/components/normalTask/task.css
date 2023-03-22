@@ -1,10 +1,30 @@
 .task-container {
-    
+        width: 40%;
         margin-top: 5rem;
         padding: 2rem;
         border-radius: 5px;
+        animation: fadeInAnimation ease 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
 }
 
 .task-name {
     color: white;
+    font-size: 20px;
+}
+
+.task-btn {
+    background-color: inherit;
+    transition: all .2s ease-in-out;
+    color: #fff;
+    border: none;
+    padding: 0.55rem;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    z-index: 99;
+}
+
+.task-btn:hover {
+    transform: scale(1.5);
 }
