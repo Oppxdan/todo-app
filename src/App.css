@@ -57,6 +57,7 @@ body {
   margin-bottom: 2rem;
   width: 300px;
   color: #fff;
+  max-width: 50%;
 }
 
 .TodoWrapper {
