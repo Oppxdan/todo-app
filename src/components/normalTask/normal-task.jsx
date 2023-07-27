@@ -33,9 +33,6 @@ function NormalTask(props) {
     >
       {isEditing ? (
         <div>
-          <label htmlFor={`editInput_${props.id}`} className="sr-only">
-            {labelEditInput}
-          </label>
           <input
             type="text"
             id={`editInput_${props.id}`}
