@@ -92,3 +92,9 @@ body {
   align-items: center;
   flex-direction: column;
 }
+
+.edit-task-input {
+  border-radius: 0;
+  border: none;
+  padding: 10px;
+}
