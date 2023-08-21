@@ -32,7 +32,7 @@ function NormalTask(props) {
       role="listitem"
     >
       {isEditing ? (
-        <div>
+        <div class="editing-container">
           <input
             type="text"
             id={`editInput_${props.id}`}
